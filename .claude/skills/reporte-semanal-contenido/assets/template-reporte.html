@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --bg: #ffffff;
+    --surface: #f6f6f9;
+    --line: #e3e3ea;
+    --text: #1a1a2e;
+    --muted: #5b5b6b;
+    --ok: #1b7f5c;     --ok-bg: #e6f5ef;
+    --warn: #8a5a00;   --warn-bg: #fdf1d8;
+    --bad: #b4233c;    --bad-bg: #fde8ec;
+    --none: #5b5b6b;   --none-bg: #eeeef2;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px; line-height: 1.55;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1, h2, h3 { line-height: 1.2; margin: 0; }
+  h2 { font-size: 18px; margin: 40px 0 6px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); }
+  h2 .n { color: var(--accent); margin-right: 8px; }
+  .lede { color: var(--muted); font-size: 13.5px; margin: 6px 0 14px; }
+  p { margin: 0 0 10px; }
+
+  header.top { border-bottom: 4px solid var(--primary); padding-bottom: 20px; }
+  .brand { font-weight: 700; font-size: 26px; letter-spacing: -0.02em; color: var(--primary); }
+  .brand .dot { color: var(--accent); }
+  .doc-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin-top: 18px; }
+  .meta { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
+  .partial { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 6px; background: var(--warn-bg); color: var(--warn); font-weight: 600; font-size: 13px; }
+
+  .verdict { margin-top: 28px; border: 1px solid var(--line); border-left: 6px solid var(--primary); border-radius: 8px; padding: 20px 22px; background: var(--surface); }
+  .verdict.v-atrae-icp { border-left-color: var(--ok); }
+  .verdict.v-mixto { border-left-color: #c98a00; }
+  .verdict.v-audiencia-equivocada { border-left-color: var(--bad); }
+  .verdict.v-sin-datos { border-left-color: var(--none); }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+  .b-atrae-icp, .b-fuerte { background: var(--ok-bg); color: var(--ok); }
+  .b-mixto, .b-parcial { background: var(--warn-bg); color: var(--warn); }
+  .b-audiencia-equivocada, .b-fuera { background: var(--bad-bg); color: var(--bad); }
+  .b-sin-datos, .b-neutral { background: var(--none-bg); color: var(--none); }
+  .verdict .frase { font-size: 20px; font-weight: 600; margin: 12px 0 12px; line-height: 1.35; }
+  .verdict ul { margin: 0; padding-left: 20px; }
+  .verdict li { margin: 4px 0; }
+  .diverge { margin-top: 14px; padding: 10px 14px; border-radius: 6px; background: #fff; border: 1px dashed var(--accent); font-size: 14px; }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+  .kpi { border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 12px; }
+  .kpi .lbl { font-size: 12px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+  .kpi .val { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 4px 0 2px; }
+  .kpi .sub { font-size: 12.5px; color: var(--muted); }
+  .kpi.primary { background: var(--primary); border-color: var(--primary); }
+  .kpi.primary .lbl, .kpi.primary .sub { color: #c8c8d8; }
+  .kpi.primary .val { color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 2px solid var(--line); }
+  td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td .small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+  tr.total td { font-weight: 600; background: var(--surface); }
+  .table-wrap { overflow-x: auto; }
+  .delta-up { color: var(--ok); font-weight: 600; }
+  .delta-down { color: var(--bad); font-weight: 600; }
+  .delta-flat { color: var(--muted); }
+
+  .bars { display: grid; gap: 18px; margin-top: 8px; }
+  .bar-group h3 { font-size: 14px; margin-bottom: 6px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .bar-group h3 span { font-weight: 400; color: var(--muted); font-size: 12.5px; }
+  .bar-row { display: grid; grid-template-columns: 120px 1fr 96px; align-items: center; gap: 10px; margin: 4px 0; font-size: 12.5px; }
+  .bar-row .track { background: var(--surface); border-radius: 4px; height: 16px; overflow: hidden; }
+  .bar-row .fill { height: 100%; border-radius: 4px; min-width: 2px; }
+  .fill.imp { background: #9a9ab0; }
+  .fill.lead { background: var(--accent); }
+  .bar-row .v { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .legend { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin: 0 4px 0 12px; vertical-align: -1px; }
+  .legend i:first-child { margin-left: 0; }
+
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+  .col { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+  .col h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .col.repetir h3 { color: var(--ok); }
+  .col.dejar h3 { color: var(--bad); }
+  .col.angulos h3 { color: var(--accent); }
+  .col ul { margin: 0; padding-left: 18px; font-size: 14px; }
+  .col li { margin: 6px 0; }
+
+  .notes { background: var(--surface); border-radius: 8px; padding: 14px 18px; font-size: 13.5px; }
+  .notes h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px; }
+  .notes ul { margin: 0 0 10px; padding-left: 18px; }
+  .notes li { margin: 4px 0; }
+  .empty { color: var(--muted); font-style: italic; }
+  .metodo { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
+
+  footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 720px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .cols { grid-template-columns: 1fr; }
+    .doc-title { font-size: 24px; }
+    .verdict .frase { font-size: 18px; }
+    .bar-row { grid-template-columns: 96px 1fr 84px; }
+  }
+  @media print {
+    @page { margin: 14mm; }
+    .page { max-width: none; padding: 0; }
+    h2 { break-after: avoid; }
+    .kpi, .verdict, .col, tr, .bar-group { break-inside: avoid; }
+    .table-wrap { overflow: visible; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="brand">Lumen Lab<span class="dot">.</span></div>
+    <div class="doc-title">Reporte semanal de contenido</div>
+    <div class="meta">{{RANGO}} · Generado el {{GENERADO}}</div>
+    {{PARCIAL}}
+  </header>
+
+  {{VEREDICTO}}
+
+  {{KPIS}}
+
+  <h2><span class="n">1</span>¿El alcance y los leads apuntan al mismo lado?</h2>
+  <p class="lede">Ventana de 5 semanas ({{RANGO_VENTANA}}). Para cada tipo de post, qué parte de las impresiones se llevó y qué parte de los leads trajo.</p>
+  {{GRAFICO}}
+
+  <h2><span class="n">2</span>Semana contra semana</h2>
+  <p class="lede">La semana reportada frente a la anterior y al promedio semanal de las 4 semanas previas.</p>
+  {{COMPARACION}}
+
+  <h2><span class="n">3</span>Posts de la semana</h2>
+  {{POSTS}}
+
+  <h2><span class="n">4</span>Leads atribuidos a contenido</h2>
+  <p class="lede">Leads de los posts de la ventana de 5 semanas, con su ajuste al cliente ideal y el criterio usado.</p>
+  {{LEADS}}
+
+  <h2><span class="n">5</span>Qué pasa con el pipeline</h2>
+  {{PIPELINE}}
+
+  <h2><span class="n">6</span>Qué hacer la semana que viene</h2>
+  {{ACCIONES}}
+
+  <h2><span class="n">7</span>Calidad de los datos y supuestos</h2>
+  {{CALIDAD}}
+
+  <p class="metodo">Cómo se mide: «atrae al cliente ideal» se calcula sobre los <strong>leads que efectivamente entraron</strong> (Notion no informa quién vio cada post en LinkedIn). El ajuste al ICP de cada lead y el tipo de cada post los clasificó Claude contra <code>cerebro/contexto/cliente.md</code> y <code>que-hacemos.md</code>; el criterio de cada uno está en las tablas para que puedas discrepar.</p>
+
+  <footer>
+    <span>Lumen Lab · Documento interno</span>
+    <span>Fuente: Notion (Contenido y Pipeline) + cerebro</span>
+  </footer>
+</div>
+</body>
+</html>

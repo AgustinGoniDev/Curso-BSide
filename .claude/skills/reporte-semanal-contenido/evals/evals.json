@@ -1,0 +1,46 @@
+{
+  "skill_name": "reporte-semanal-contenido",
+  "notes": "Los datos de referencia son los de Notion al 21/09/2026. Si las bases cambian, actualizar las expectativas.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Armame el reporte semanal de contenido.",
+      "expected_output": "HTML en reportes/reporte-semanal-2026-09-20.html para la semana 14–20 sep 2026 (última semana cerrada) y una fila en Reportes semanales.",
+      "expectations": [
+        "La semana reportada es 14–20 sep 2026 y la ventana de análisis va del 17 ago al 20 sep",
+        "Cuenta 2 posts en la semana (15/9 y 17/9) y 1 lead atribuido (Benedetti Finanzas, ICP fuerte)",
+        "Cuenta 3 leads ICP fuerte de 3 en la ventana de 5 semanas (Acosta & Rey, Aranda Ingeniería, Benedetti Finanzas)",
+        "Clasifica como educativos genéricos los posts de hashtags, herramientas de IA, guía de ganchos y newsletter, y como dolor-icp los de referidos, cliente grande y estudios contables",
+        "Señala que el post de más alcance (guía de ganchos, 8.410 imp.) no trajo leads",
+        "Muestra el n junto a cada porcentaje; no afirma porcentajes sin base",
+        "Reporta en calidad de datos el post del 20/8 con 2 mensajes y sin lead cargado",
+        "Reporta que el snapshot de CLAUDE.md (pipeline ~$6.000, reunión Síntesis 14/05) no coincide con Notion",
+        "El HTML usa la paleta de Lumen Lab (#1a1a2e, #e94560, Inter) y no tiene scroll horizontal a 375 px",
+        "Crea una sola fila en Reportes semanales con Generado por = Manual y no modifica Contenido ni Pipeline"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "¿Cómo rindió el contenido la semana del 24 al 30 de agosto? ¿Está trayendo clientes ideales?",
+      "expected_output": "Reporte de la semana 24–30 ago 2026, con un post genérico de mucho alcance sin leads y un post de dolor ICP con lead.",
+      "expectations": [
+        "La semana reportada es 24–30 ago 2026",
+        "Cuenta 2 posts (25/8 herramientas de IA, 6.120 imp., 0 leads; 27/8 estudios contables, 5.230 imp., 1 lead)",
+        "El lead atribuido es Acosta & Rey Contadores con fit ICP fuerte",
+        "El veredicto contrasta el alcance del post genérico con el lead del post de dolor ICP",
+        "No usa la ventana de otras semanas como si fueran de la semana reportada"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Necesito el informe de contenido de la semana del 20 al 26 de julio.",
+      "expected_output": "Reporte que dice claramente que no hubo posts ni leads en esa semana, sin inventar datos.",
+      "expectations": [
+        "El reporte se genera igual, con semáforo 'sin-datos'",
+        "La sección de posts dice que no se publicó ningún post esa semana",
+        "No inventa métricas ni leads para completar",
+        "Indica que la ventana no alcanza para concluir sobre el ICP"
+      ]
+    }
+  ]
+}

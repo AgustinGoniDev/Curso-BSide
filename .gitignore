@@ -1,0 +1,22 @@
+# Secretos y credenciales
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials*.json
+
+# Configuración local de Claude Code (permisos y ajustes personales de cada PC)
+.claude/settings.local.json
+
+# Sistema operativo y temporales
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+
+# Dependencias y cachés
+node_modules/
+.venv/
+__pycache__/
+*.pyc
