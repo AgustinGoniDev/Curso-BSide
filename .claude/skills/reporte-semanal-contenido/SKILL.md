@@ -93,6 +93,8 @@ Agregá la clave `narrativa` a `datos.json` con (campos exactos en `references/m
 python .claude/skills/reporte-semanal-contenido/scripts/renderizar_reporte.py datos.json reportes/reporte-semanal-AAAA-MM-DD.html
 ```
 
+> **Intérprete:** usá `python`. Si no existe (Mac, Linux o cuando la skill corre en la nube), usá `python3`.
+
 `AAAA-MM-DD` es el domingo de la semana reportada. El script usa `assets/template-reporte.html` (branding de Lumen Lab: fondo blanco, `#1a1a2e`, acento `#e94560`, Inter; imprimible y legible en celular). Creá la carpeta `reportes/` si no existe. Abrí el archivo para revisarlo antes de dar el reporte por bueno.
 
 ## Step 8 — Registrar en Notion

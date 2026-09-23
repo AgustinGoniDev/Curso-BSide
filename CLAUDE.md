@@ -90,4 +90,4 @@ Pipeline CRM: https://www.notion.so/35b8e29552c38082a59dfba5586c8cd4
 Database ID: 86845970-7077-4fde-8e13-0eac9f61300b
 
 ## Contexto
-Siempre que te consulte algo, tenes que usar el cerebro que esta en C:\Users\agus_\OneDrive\Documentos\Curso-BSide\cerebro
+Antes de producir cualquier cosa, leé cerebro/index.md y los archivos de cerebro/contexto/.
