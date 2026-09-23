@@ -48,3 +48,4 @@ Ticket promedio: $1.500–$3.500 USD/mes (retainer).
 - [[que-hacemos]] — la oferta que resuelve el dolor de este cliente.
 - [[procesos]] — dónde entra la calificación del ICP en el funnel de ventas.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
+- [[2026-09-23-skill-reporte-semanal-contenido]] — skill que usa este ICP para medir si el contenido atrae al cliente ideal.

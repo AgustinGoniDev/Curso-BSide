@@ -45,3 +45,4 @@ El diferencial frente a otras agencias de marketing genérico es la especializac
 - [[procesos]] — cómo se produce y entrega esta oferta (funnel de ventas + ciclo del retainer).
 - [[voz]] — cómo se comunica esta oferta hacia afuera.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
+- [[2026-09-23-skill-reporte-semanal-contenido]] — skill que usa el ticket y la oferta de este archivo en el criterio de fit de los leads.

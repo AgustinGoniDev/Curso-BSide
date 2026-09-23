@@ -58,6 +58,7 @@ El usuario pidió analizar e instalar el skill `claude-brain` (repo público `Ag
 - [[cliente]] — contexto de negocio poblado en esta sesión.
 - [[procesos]] — contexto de negocio poblado en esta sesión.
 - [[voz]] — contexto de negocio poblado en esta sesión.
+- [[2026-09-23-skill-reporte-semanal-contenido]] — conectó Notion por MCP, que esta sesión había dejado como pendiente, y construyó sobre este wiki.
 
 ## Fuentes
 - Origen histórico (no modificar): `CLAUDE.md`

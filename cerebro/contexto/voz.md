@@ -38,3 +38,4 @@ Consultivo, no vendedor — concreto (señales y casos con métricas reales, no 
 - [[que-hacemos]] — la propuesta de valor que este tono comunica.
 - [[procesos]] — el paso del funnel (prospección) donde se aplica este framework.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
+- [[2026-09-23-skill-reporte-semanal-contenido]] — skill que aplica la regla de no tratar alcance como fin: el reporte abre con pipeline.

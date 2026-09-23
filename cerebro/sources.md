@@ -28,6 +28,10 @@
 - **Path:** `docs/voz-y-mensajes.md`
 - **Descripción:** Framework de Email 1, tono y mensajes clave usados para poblar [[voz]].
 
+### skill-reporte-semanal-contenido
+- **Path:** `.claude/skills/reporte-semanal-contenido/`
+- **Descripción:** Skill que cruza Contenido y Pipeline de Notion con el ICP de [[cliente]] y genera el reporte semanal en HTML (`reportes/`). Creada en [[2026-09-23-skill-reporte-semanal-contenido]].
+
 ---
 
 ## URLs externas
@@ -36,4 +40,16 @@
 
 ### notion-pipeline-crm
 - **URL:** https://www.notion.so/35b8e29552c38082a59dfba5586c8cd4
-- **Descripción:** Pipeline CRM de Lumen Lab (Database ID: 86845970-7077-4fde-8e13-0eac9f61300b). No conectado vía MCP — este wiki no hace fetch automático. Referencia manual.
+- **Descripción:** Pipeline CRM de Lumen Lab (Database ID: 86845970-7077-4fde-8e13-0eac9f61300b). Este wiki no hace fetch automático, pero desde 2026-09-23 Notion está disponible en la sesión por conector MCP (ver [[2026-09-23-skill-reporte-semanal-contenido]]). La carpeta raíz "Lumen Lab" contiene además las bases de Contenido y Reportes semanales.
+
+### notion-contenido
+- **URL:** https://app.notion.com/p/a11c3f1de5b447cc91733716a6e51325
+- **Descripción:** Base "Contenido Lumen Lab" (data source `c74ccafa-9008-47e7-a413-aa7c73fc5ab2`): posts de LinkedIn con impresiones, reacciones, comentarios, mensajes y relación `Leads` hacia el Pipeline.
+
+### notion-reportes-semanales
+- **URL:** https://app.notion.com/p/a24822535f004c0684102b7d8120ec72
+- **Descripción:** Base "Reportes semanales" (data source `19878eb9-f8ce-4686-ac2f-e3041e8cae04`): una fila por reporte, con `Semana` y `Generado por` (Manual, Tarea local, Rutina nube).
+
+### repo-github-curso-bside
+- **URL:** https://github.com/AgustinGoniDev/Curso-BSide
+- **Descripción:** Repo de GitHub de esta carpeta (rama `main`, público desde 2026-09-23 por decisión del usuario). Ver [[2026-09-23-skill-reporte-semanal-contenido]].

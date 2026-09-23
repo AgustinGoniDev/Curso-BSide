@@ -16,3 +16,8 @@
 ## [2026-09-10 15:05] ingest | 2026-09-10-instalacion-wiki-cerebro
 - Área: general
 - Cross-refs: que-hacemos, cliente, procesos, voz (bidireccional)
+
+## [2026-09-23 14:17] ingest | 2026-09-23-skill-reporte-semanal-contenido
+- Área: general
+- Cross-refs: cliente, que-hacemos, voz, procesos, 2026-09-10-instalacion-wiki-cerebro (bidireccional)
+- sources.md: agregadas skill-reporte-semanal-contenido, notion-contenido, notion-reportes-semanales, repo-github-curso-bside; actualizada notion-pipeline-crm (Notion ya conectado por MCP)

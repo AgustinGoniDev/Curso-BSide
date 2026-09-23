@@ -50,3 +50,4 @@ El pipeline hoy vive en la cabeza de Tomás Ruiz (dueño). Usa Notion para track
 - [[cliente]] — el perfil que se califica en el paso de calificación del funnel.
 - [[voz]] — el framework de Email 1 usado en el paso de prospección.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
+- [[2026-09-23-skill-reporte-semanal-contenido]] — skill que reporta cada semana cómo el contenido alimenta las etapas del funnel.
