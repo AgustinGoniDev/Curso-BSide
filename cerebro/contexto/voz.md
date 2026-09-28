@@ -1,7 +1,7 @@
 ---
 type: contexto
 area: general
-date: 2026-09-10
+date: 2026-09-28
 slug: voz
 title: "Cómo escribe y comunica Lumen Lab"
 tags: [voz, tono, email-1, prospeccion, copy]
@@ -9,6 +9,7 @@ status: active
 related:
   - que-hacemos
   - procesos
+  - pruebas
 sources:
   - repo:CLAUDE.md
   - repo:docs/voz-y-mensajes.md
@@ -26,6 +27,22 @@ El lineamiento de voz más concreto que tiene Lumen Lab es el framework de Email
 
 Consultivo, no vendedor — concreto (señales y casos con métricas reales, no generalidades) — orientado al proceso del cliente, no a las features del servicio.
 
+## Reglas de escritura
+
+- Se escribe como se habla en una reunión, no como un folleto.
+- Una idea por párrafo.
+- Si hay un número, va el número. Si no lo tenemos, no se estima.
+- Los casos hablan, nosotros no: nada de superlativos sobre Lumen Lab.
+
+## Palabras prohibidas
+
+- "Soluciones integrales", "potenciar", "sinergia", "transformación digital".
+
+## Promesas prohibidas
+
+- Cantidad de leads, facturación o posiciones en Google. Nada que Lumen Lab no controle.
+- Ningún resultado que no haya dicho un cliente en [[pruebas]].
+
 ## Qué nunca se dice
 
 - Diagnósticos cerrados en el primer contacto ("tu problema es X") — va como hipótesis.
@@ -37,5 +54,7 @@ Consultivo, no vendedor — concreto (señales y casos con métricas reales, no 
 ## Cross-refs
 - [[que-hacemos]] — la propuesta de valor que este tono comunica.
 - [[procesos]] — el paso del funnel (prospección) donde se aplica este framework.
+- [[pruebas]] — la única fuente válida para casos y resultados.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
 - [[2026-09-23-skill-reporte-semanal-contenido]] — skill que aplica la regla de no tratar alcance como fin: el reporte abre con pipeline.
+- [[2026-09-28-landing-page-lumen-lab]] — sesión que aplica este tono en la landing y decide tuteo neutro LATAM para ella (el Abierto sigue sin cerrar).

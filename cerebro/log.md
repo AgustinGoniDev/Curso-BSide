@@ -21,3 +21,8 @@
 - Área: general
 - Cross-refs: cliente, que-hacemos, voz, procesos, 2026-09-10-instalacion-wiki-cerebro (bidireccional)
 - sources.md: agregadas skill-reporte-semanal-contenido, notion-contenido, notion-reportes-semanales, repo-github-curso-bside; actualizada notion-pipeline-crm (Notion ya conectado por MCP)
+
+## [2026-09-28 15:02] ingest | 2026-09-28-landing-page-lumen-lab
+- Área: general
+- Cross-refs: voz, pruebas, cliente, identidad-visual, que-hacemos (bidireccional)
+- sources.md: agregadas landing-lumen-lab, australisai-referencia

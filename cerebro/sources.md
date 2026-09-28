@@ -32,6 +32,10 @@
 - **Path:** `.claude/skills/reporte-semanal-contenido/`
 - **Descripción:** Skill que cruza Contenido y Pipeline de Notion con el ICP de [[cliente]] y genera el reporte semanal en HTML (`reportes/`). Creada en [[2026-09-23-skill-reporte-semanal-contenido]].
 
+### landing-lumen-lab
+- **Path:** `landing/copy.md`, `landing/index.html`
+- **Descripción:** Copy aprobado y landing page de Lumen Lab (HTML con el CSS adentro). Creada en [[2026-09-28-landing-page-lumen-lab]].
+
 ---
 
 ## URLs externas
@@ -53,3 +57,7 @@
 ### repo-github-curso-bside
 - **URL:** https://github.com/AgustinGoniDev/Curso-BSide
 - **Descripción:** Repo de GitHub de esta carpeta (rama `main`, público desde 2026-09-23 por decisión del usuario). Ver [[2026-09-23-skill-reporte-semanal-contenido]].
+
+### australisai-referencia
+- **URL:** https://australisai.tech/
+- **Descripción:** Landing de Australis AI usada como referencia de estructura y estilo para la landing de Lumen Lab (solo el sistema de layout; colores y fuente salen de [[identidad-visual]]). Ver [[2026-09-28-landing-page-lumen-lab]].
