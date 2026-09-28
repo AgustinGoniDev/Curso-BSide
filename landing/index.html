@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen Lab · Marketing B2B para empresas de servicios profesionales</title>
+<meta name="description" content="Un sistema para conseguir clientes que no dependa solo de los referidos ni del dueño: posicionamiento, contenido en LinkedIn y prospección saliente para estudios y consultoras en LATAM.">
+<meta property="og:title" content="Lumen Lab · Marketing B2B para empresas de servicios profesionales">
+<meta property="og:description" content="Que tus próximos clientes no dependan de que alguien te nombre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens: cerebro/contexto/identidad-visual.md */
+  :root {
+    --primary: #1a1a2e;   /* azul noche */
+    --accent: #e94560;    /* coral: solo CTA principal y acento del H1 */
+    --muted: #5b5b6b;
+    --surface: #f6f6f9;
+    --line: #e3e3ea;
+    --bg: #ffffff;
+    --radius: 8px;
+    --radius-lg: 16px;
+    --max: 1152px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--primary); background: var(--bg);
+    font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* Tipografía */
+  h1, h2, h3 { font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+  h1 { font-size: clamp(42px, 7vw, 76px); letter-spacing: -0.04em; line-height: 1.02; }
+  h2 { font-size: clamp(30px, 4vw, 40px); }
+  h3 { font-size: 20px; letter-spacing: -0.02em; line-height: 1.3; }
+  .eyebrow {
+    display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+  }
+  .lead { font-size: 19px; color: var(--muted); max-width: 640px; margin-top: 16px; }
+  .accent { color: var(--accent); }
+  .logo { font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+
+  /* Botones */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 16px;
+    padding: 14px 24px; border-radius: var(--radius); border: 2px solid transparent;
+    transition: transform .2s, background .2s, border-color .2s; cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { background: #d63a54; }
+  .btn-dark { background: var(--primary); color: #fff; padding: 10px 18px; font-size: 14px; }
+  .btn-outline { border-color: var(--primary); color: var(--primary); }
+  .btn-outline:hover { background: var(--primary); color: #fff; }
+  .btn-outline-light { border-color: rgba(255,255,255,.4); color: #fff; }
+  .btn-outline-light:hover { border-color: #fff; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .micro { font-size: 13px; color: var(--muted); margin-top: 16px; }
+
+  /* Header */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    transition: background .3s, box-shadow .3s;
+  }
+  header.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--line); }
+  nav { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  nav ul { display: flex; gap: 32px; list-style: none; font-size: 14px; color: var(--muted); }
+  nav ul a:hover { color: var(--primary); }
+
+  /* Secciones */
+  section { padding: 96px 0; }
+  .alt { background: var(--surface); }
+  .head { max-width: 720px; margin-bottom: 56px; }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px;
+    background:
+      radial-gradient(ellipse 60% 70% at 95% 40%, var(--surface) 0%, rgba(246,246,249,0) 70%),
+      var(--bg);
+  }
+  .hero h1 { max-width: 880px; }
+  .hero .lead { max-width: 620px; margin-top: 28px; }
+
+  /* Problema: lista numerada */
+  .problems { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .problem {
+    display: grid; grid-template-columns: 80px 1fr 1fr; gap: 32px;
+    padding: 40px 0; border-bottom: 1px solid var(--line);
+  }
+  .num { font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; padding-top: 4px; }
+  .problem p { color: var(--muted); margin-top: 10px; }
+  .quote { font-size: 17px; line-height: 1.55; }
+  .quote cite, .card cite { display: block; font-style: normal; font-size: 14px; color: var(--muted); margin-top: 10px; }
+  .problem .quote { border-left: 2px solid var(--line); padding-left: 20px; font-style: italic; }
+  .problem .quote cite { font-style: normal; }
+
+  /* Para quién */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile {
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 28px 24px; font-weight: 600; font-size: 17px; line-height: 1.35; min-height: 140px;
+    display: flex; align-items: flex-end;
+  }
+  .not-for {
+    margin-top: 32px; border: 1px dashed #c9c9d4; border-radius: var(--radius-lg); padding: 32px;
+    display: grid; grid-template-columns: 260px 1fr; gap: 32px;
+  }
+  .not-for ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; color: var(--muted); }
+  .not-for li::before { content: "—"; margin-right: 10px; color: #b0b0bd; }
+
+  /* Timeline */
+  .timeline { position: relative; max-width: 760px; }
+  .timeline::before { content: ""; position: absolute; left: 19px; top: 20px; bottom: 20px; width: 2px; background: var(--line); }
+  .step { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 24px; padding-bottom: 44px; }
+  .step:last-child { padding-bottom: 0; }
+  .dot {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: #fff;
+    font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; z-index: 1;
+  }
+  .step h3 { padding-top: 7px; }
+  .step p { color: var(--muted); margin-top: 8px; }
+  .aside-note {
+    margin-top: 48px; max-width: 760px; background: var(--bg); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px 24px; font-size: 16px; color: var(--muted);
+  }
+  .aside-note strong { color: var(--primary); }
+
+  /* Lo que te pedimos */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .asks { list-style: none; display: grid; gap: 28px; margin-top: 40px; }
+  .asks li { display: grid; grid-template-columns: 28px 1fr; gap: 16px; }
+  .check {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+  }
+  .asks strong { display: block; }
+  .asks span { color: var(--muted); }
+  .feature-quote { position: relative; }
+  .feature-quote .box {
+    position: relative; z-index: 1; background: var(--primary); color: #fff; border-radius: var(--radius-lg);
+    padding: 48px 40px;
+  }
+  .feature-quote .box::before { content: "“"; display: block; font-size: 72px; line-height: .6; color: rgba(255,255,255,.25); margin-bottom: 12px; }
+  .feature-quote .box p { font-size: clamp(22px, 2.6vw, 28px); font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; }
+  .feature-quote .box cite { display: block; font-style: normal; font-size: 14px; color: rgba(255,255,255,.65); margin-top: 20px; }
+  .feature-quote .shape {
+    position: absolute; right: -16px; bottom: -16px; width: 128px; height: 128px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  }
+
+  /* Casos */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card {
+    display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 32px; transition: box-shadow .3s, transform .3s;
+  }
+  .card:hover { box-shadow: 0 12px 32px rgba(26,26,46,.08); transform: translateY(-2px); }
+  .pill {
+    align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); background: var(--surface); padding: 4px 12px; border-radius: 999px;
+  }
+  .card h3 { font-size: 26px; margin-top: 24px; letter-spacing: -0.03em; }
+  .card .quote { margin-top: 16px; color: var(--muted); font-style: italic; }
+  .card .quote cite { font-style: normal; margin-top: 0; }
+  .card footer { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); }
+  .card .before-after { margin-top: 16px; display: grid; gap: 8px; font-size: 15px; }
+  .card .before-after div { display: grid; grid-template-columns: 72px 1fr; gap: 8px; }
+  .card .before-after b { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding-top: 3px; }
+  .card .before-after .was { color: var(--muted); text-decoration: line-through; text-decoration-color: #b0b0bd; }
+
+  /* Plazos */
+  .months { display: grid; gap: 16px; }
+  .month {
+    display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: start;
+    padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--bg);
+  }
+  .month .when { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .month.hit { border-color: var(--primary); }
+  .month .what { font-size: 16px; }
+  .month .what em { display: block; font-size: 18px; font-weight: 600; font-style: normal; letter-spacing: -0.01em; }
+  .month .what small { display: block; color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .promise { margin-top: 24px; color: var(--muted); }
+  .promise strong { color: var(--primary); }
+
+  /* FAQ */
+  .faq { max-width: 820px; border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    list-style: none; cursor: pointer; padding: 24px 40px 24px 0; position: relative;
+    font-weight: 600; font-size: 18px; letter-spacing: -0.01em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    font-size: 24px; font-weight: 400; color: var(--muted); transition: transform .2s;
+  }
+  details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  details p { color: var(--muted); padding: 0 40px 24px 0; }
+
+  /* CTA final + footer */
+  .dark { background: var(--primary); color: #fff; }
+  .cta { text-align: left; }
+  .cta h2 { font-size: clamp(34px, 5vw, 52px); max-width: 760px; letter-spacing: -0.035em; }
+  .cta .lead { color: rgba(255,255,255,.72); }
+  .cta .micro { color: rgba(255,255,255,.55); }
+  .site-footer { padding: 64px 0 32px; border-top: 1px solid rgba(255,255,255,.1); }
+  .site-footer .cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  .site-footer .logo span { color: var(--accent); }
+  .site-footer p, .site-footer li { color: rgba(255,255,255,.62); font-size: 15px; }
+  .site-footer h4 { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 14px; }
+  .site-footer ul { list-style: none; display: grid; gap: 8px; }
+  .site-footer a:hover { color: #fff; }
+  .legal { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); font-size: 13px; color: rgba(255,255,255,.4); }
+
+  /* ---------- Mockups (piezas del servicio recreadas en HTML) ---------- */
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .hero-grid h1 { font-size: clamp(42px, 5.6vw, 66px); }
+  .hero-visual { position: relative; height: 500px; }
+  .mock {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(26,26,46,.12); font-size: 14px; line-height: 1.5; color: var(--primary);
+  }
+  .ex {
+    display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); background: var(--surface); border: 1px solid var(--line); padding: 2px 8px; border-radius: 999px;
+  }
+  /* Post de LinkedIn */
+  .li-post { padding: 18px 18px 12px; }
+  .li-head { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: #fff; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;
+  }
+  .li-head b { display: block; font-size: 14px; }
+  .li-head small { display: block; font-size: 12px; color: var(--muted); line-height: 1.3; }
+  .li-head .ex { margin-left: auto; align-self: flex-start; }
+  .li-post p + p { margin-top: 8px; }
+  .li-actions {
+    display: flex; justify-content: space-around; margin-top: 14px; padding-top: 10px;
+    border-top: 1px solid var(--line); font-size: 12.5px; font-weight: 600; color: var(--muted);
+  }
+  /* Email */
+  .email-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--surface); border-radius: 12px 12px 0 0; }
+  .email-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .email-bar .ex { margin-left: auto; }
+  .email-field { display: grid; grid-template-columns: 56px 1fr; padding: 8px 16px; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .email-field span { color: var(--muted); }
+  .email-body { padding: 14px 16px 18px; }
+  .email-body p + p { margin-top: 8px; }
+  /* Reporte */
+  .report { padding: 20px; }
+  .report-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .report h4 { font-size: 15px; letter-spacing: -.01em; }
+  .report .sub { font-size: 12.5px; color: var(--muted); margin-bottom: 16px; }
+  .bar { display: grid; grid-template-columns: 84px 1fr; gap: 10px; align-items: center; font-size: 12.5px; margin-top: 10px; }
+  .bar .track { height: 12px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+  .bar .fill { height: 100%; width: 0; background: var(--primary); border-radius: 6px; transition: width 1.2s cubic-bezier(.2,.7,.2,1); }
+  .bar .fill.soft { background: #9d9db0; }
+  .on .bar .fill { width: var(--w); }
+  .report .note { margin-top: 16px; padding: 10px 12px; background: var(--surface); border-radius: 8px; font-size: 12.5px; color: var(--muted); }
+  /* Posicionamiento */
+  .pos { padding: 22px; }
+  .pos .row { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .pos .row:last-of-type { border-bottom: 0; }
+  .pos b { display: block; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .pos .was { color: var(--muted); text-decoration: line-through; text-decoration-color: #b0b0bd; }
+  .pos .now { font-size: 18px; font-weight: 600; letter-spacing: -.01em; line-height: 1.35; }
+  .pos cite { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+
+  .hero-visual .li-post { position: absolute; top: 0; right: 0; width: 370px; animation: float 7s ease-in-out infinite; }
+  .hero-visual .email { position: absolute; bottom: 0; left: -8px; width: 350px; animation: float 8s ease-in-out -4s infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+  /* ---------- Cinta de citas ---------- */
+  .ticker { background: var(--primary); color: #fff; padding: 22px 0; overflow: hidden; }
+  .ticker-track { display: flex; width: max-content; animation: ticker 60s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-item { white-space: nowrap; padding: 0 36px; font-size: 16px; font-weight: 500; position: relative; }
+  .ticker-item small { color: rgba(255,255,255,.5); font-size: 13px; margin-left: 8px; }
+  .ticker-item::after { content: ""; position: absolute; right: -3px; top: 50%; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.25); transform: translateY(-50%); }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+
+  /* ---------- Método con panel fijo ---------- */
+  .method { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .timeline::after {
+    content: ""; position: absolute; left: 19px; top: 20px; width: 2px; height: var(--p, 0%);
+    max-height: calc(100% - 40px); background: var(--primary); transition: height .2s linear;
+  }
+  .step .dot { background: var(--bg); color: var(--muted); border: 2px solid var(--line); transition: all .3s; }
+  .step.active .dot { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .step h3, .step p { transition: opacity .3s; }
+  .step:not(.active) h3, .step:not(.active) > div > p { opacity: .55; }
+  .step { padding-bottom: 96px; }
+  .stage { position: sticky; top: 120px; height: 440px; }
+  .stage .mock { position: absolute; inset: 0 0 auto 0; opacity: 0; transform: translateY(16px) scale(.98); transition: opacity .45s, transform .45s; pointer-events: none; }
+  .stage .mock.show { opacity: 1; transform: none; pointer-events: auto; }
+  .step-visual { display: none; margin-top: 20px; }
+  .step-visual .mock { box-shadow: 0 10px 30px rgba(26,26,46,.08); }
+
+  /* ---------- Aparición al hacer scroll ---------- */
+  .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0s); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
+    .bar .fill { width: var(--w); }
+  }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { height: 460px; max-width: 520px; }
+  }
+  @media (max-width: 900px) {
+    .method { grid-template-columns: 1fr; }
+    .stage { display: none; }
+    .step-visual { display: block; }
+    .step { padding-bottom: 48px; }
+    .step:not(.active) h3, .step:not(.active) > div > p { opacity: 1; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .split { grid-template-columns: 1fr; gap: 56px; }
+    .not-for { grid-template-columns: 1fr; gap: 16px; }
+  }
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    section { padding: 72px 0; }
+    .wrap { padding: 0 16px; }
+    nav ul { display: none; }
+    .hero { min-height: auto; padding: 112px 0 72px; }
+    .lead { font-size: 17px; }
+    .head { margin-bottom: 40px; }
+    .problem { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .tile { min-height: 100px; }
+    .not-for { padding: 24px; }
+    .not-for ul { grid-template-columns: 1fr; }
+    .card { padding: 24px; }
+    .month { grid-template-columns: 1fr; gap: 6px; }
+    .feature-quote .box { padding: 36px 28px; }
+    .feature-quote .shape { right: -8px; bottom: -8px; width: 96px; height: 96px; }
+    .site-footer .cols { grid-template-columns: 1fr; gap: 32px; }
+    .actions .btn { width: 100%; justify-content: center; }
+    .hero-visual { height: 430px; }
+    .hero-visual .li-post { width: 88%; }
+    .hero-visual .email { width: 86%; left: 0; }
+    .ticker-item { font-size: 14px; padding: 0 24px; }
+  }
+  @media (max-width: 420px) { .grid-4 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- PENDIENTE: reemplazar AGENDA_URL por el link real de agenda (ver copy.md, pendiente 1) -->
+
+<header id="top">
+  <nav class="wrap">
+    <a href="#top" class="logo">Lumen Lab<span>.</span></a>
+    <ul>
+      <li><a href="#metodo">Cómo trabajamos</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#preguntas">Preguntas frecuentes</a></li>
+    </ul>
+    <a href="#contacto" class="btn btn-dark">Agendar una conversación</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Marketing B2B · Servicios profesionales · LATAM</span>
+      <h1>Que tus próximos clientes no dependan de que <span class="accent">alguien te nombre</span></h1>
+      <p class="lead">Ayudamos a estudios contables, consultoras, software factories y estudios de arquitectura, ingeniería y legal a tener su propio sistema para iniciar conversaciones con clientes nuevos: posicionamiento, contenido en LinkedIn y prospección saliente. Sin contratar un comercial.</p>
+      <div class="actions">
+        <a href="#contacto" class="btn btn-accent">Agendar una conversación</a>
+        <a href="#metodo" class="btn btn-outline">Ver cómo trabajamos</a>
+      </div>
+      <p class="micro">Hablamos de cómo consigues clientes hoy · Sin demo · Sin compromiso</p>
+    </div>
+
+    <!-- Mockups ilustrativos: no son piezas reales de clientes -->
+    <div class="hero-visual" aria-label="Ejemplos de un post de LinkedIn y un primer email">
+      <div class="mock li-post">
+        <div class="li-head">
+          <span class="avatar">TN</span>
+          <div><b>Tu nombre</b><small>Socia · Tu estudio · 1 d</small></div>
+          <span class="ex">Ejemplo</span>
+        </div>
+        <p>Ningún cliente nos eligió por “compromiso y experiencia”.</p>
+        <p>Nos eligieron porque su contador anterior les avisaba de los vencimientos el último día.</p>
+        <p>Eso es lo que resolvemos. Lo demás es folleto.</p>
+        <div class="li-actions"><span>Recomendar</span><span>Comentar</span><span>Compartir</span></div>
+      </div>
+      <div class="mock email">
+        <div class="email-bar"><i></i><i></i><i></i><span class="ex">Ejemplo</span></div>
+        <div class="email-field"><span>Para</span>Socio fundador · Estudio contable</div>
+        <div class="email-field"><span>Asunto</span>una pregunta sobre tus clientes nuevos</div>
+        <div class="email-body">
+          <p>Vi que el estudio sumó dos contadores este año. Suele pasar que el equipo crece, pero los clientes siguen llegando solo por recomendación.</p>
+          <p>¿Cómo están consiguiendo clientes nuevos hoy?</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Cinta de citas (pruebas.md) -->
+  <div class="ticker" aria-label="Lo que dicen los clientes">
+    <div class="ticker-track">
+      <span class="ticker-item">“No nos prometieron leads. Nos dieron un método y lo cumplieron.”<small>Kodea</small></span>
+      <span class="ticker-item">“Hoy lo decimos en una frase y la usamos en todas las reuniones.”<small>Nexo Legal</small></span>
+      <span class="ticker-item">“Me devolvieron mi propio discurso ordenado.”<small>Faro Consulting</small></span>
+      <span class="ticker-item">“Una reunión por mes y apruebo los posts desde el teléfono.”<small>Concreto Studio</small></span>
+      <span class="ticker-item">“Ahora hay un calendario que no depende de nuestra memoria.”<small>Aranda Ingeniería</small></span>
+      <span class="ticker-item" aria-hidden="true">“No nos prometieron leads. Nos dieron un método y lo cumplieron.”<small>Kodea</small></span>
+      <span class="ticker-item" aria-hidden="true">“Hoy lo decimos en una frase y la usamos en todas las reuniones.”<small>Nexo Legal</small></span>
+      <span class="ticker-item" aria-hidden="true">“Me devolvieron mi propio discurso ordenado.”<small>Faro Consulting</small></span>
+      <span class="ticker-item" aria-hidden="true">“Una reunión por mes y apruebo los posts desde el teléfono.”<small>Concreto Studio</small></span>
+      <span class="ticker-item" aria-hidden="true">“Ahora hay un calendario que no depende de nuestra memoria.”<small>Aranda Ingeniería</small></span>
+    </div>
+  </div>
+
+  <!-- 2. El problema -->
+  <section class="alt" id="problema">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">El problema</span>
+        <h2>Tu servicio es bueno. El problema es cómo llegan los clientes.</h2>
+        <p class="lead">Lo escuchamos en casi todas las primeras reuniones. Estas son sus palabras, no las nuestras.</p>
+      </div>
+      <div class="problems">
+        <div class="problem">
+          <span class="num">01</span>
+          <div>
+            <h3>Todo depende de los referidos</h3>
+            <p>Los clientes llegan por recomendación. Funciona, pero no sabes cuándo va a llegar el próximo ni qué pasa si tu mejor contacto deja de recomendarte.</p>
+          </div>
+          <blockquote class="quote">“Veníamos de doce años viviendo del boca a boca. Funcionaba hasta que dejaba de funcionar, y nunca sabías cuándo.”<cite>Julieta Paz, Nexo Legal</cite></blockquote>
+        </div>
+        <div class="problem">
+          <span class="num">02</span>
+          <div>
+            <h3>Quien sabe vender está atendiendo clientes</h3>
+            <p>El dueño o los socios son los únicos que venden. Y cuando hay trabajo, nadie prospecta.</p>
+          </div>
+          <blockquote class="quote">“Cuando estoy con clientes no prospecto, y siempre estoy con clientes.”<cite>Paula Ortiz, Brújula RRHH</cite></blockquote>
+        </div>
+        <div class="problem">
+          <span class="num">03</span>
+          <div>
+            <h3>Se publica, pero no se sabe si sirve</h3>
+            <p>Hay posts en LinkedIn cuando alguien se acuerda. Nadie sabe si eso trae reuniones.</p>
+          </div>
+          <blockquote class="quote">“Posteábamos cuando nos acordábamos y nunca supimos si servía para algo.”<cite>Federico Aranda, Aranda Ingeniería</cite></blockquote>
+        </div>
+        <div class="problem">
+          <span class="num">04</span>
+          <div>
+            <h3>Cuesta explicar qué te hace distinto</h3>
+            <p>La web dice lo mismo que la de la competencia. Y en una reunión, la diferencia no sale en una frase.</p>
+          </div>
+          <blockquote class="quote">“Todos los estudios contables decimos lo mismo: compromiso, cercanía, experiencia.”<cite>Andrés Villalba, Villalba &amp; Asociados</cite></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Para quién es -->
+  <section id="para-quien">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Para quién es</span>
+        <h2>Trabajamos con empresas que venden su conocimiento.</h2>
+        <p class="lead">PyMEs de servicios profesionales donde el dueño o los socios todavía son los que venden.</p>
+      </div>
+      <div class="grid-4">
+        <div class="tile">Estudios contables y consultoras de finanzas</div>
+        <div class="tile">Agencias y software factories</div>
+        <div class="tile">Consultoras de RRHH y reclutamiento</div>
+        <div class="tile">Estudios de arquitectura, ingeniería y legal</div>
+      </div>
+      <div class="not-for">
+        <h3>Probablemente no somos para ti si…</h3>
+        <ul>
+          <li>Necesitas resultados en semanas. Esto se construye en meses.</li>
+          <li>Nadie del equipo está dispuesto a firmar lo que se publica.</li>
+          <li>Todavía estás validando qué servicio vender.</li>
+          <li>Ya tienes un equipo comercial y solo buscas posts sueltos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Cómo trabajamos -->
+  <section class="alt" id="metodo">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>Un método, no promesas.</h2>
+        <p class="lead">No empezamos publicando. Empezamos por entender por qué un cliente te elegiría a ti y no al estudio de enfrente.</p>
+      </div>
+      <div class="method">
+      <div class="timeline">
+        <div class="step active" data-step="0">
+          <span class="dot">01</span>
+          <div>
+            <h3>Posicionamiento</h3>
+            <p>Definimos qué te hace distinto y lo llevamos a una frase que puedas decir en cualquier reunión. Todo lo demás se construye sobre eso.</p>
+            <div class="step-visual"></div>
+          </div>
+        </div>
+        <div class="step" data-step="1">
+          <span class="dot">02</span>
+          <div>
+            <h3>Contenido en LinkedIn y newsletter</h3>
+            <p>Entre 4 y 8 posts por mes y un newsletter mensual, con tu voz. Hablamos de los problemas de tus clientes, no de tu servicio.</p>
+            <div class="step-visual"></div>
+          </div>
+        </div>
+        <div class="step" data-step="2">
+          <span class="dot">03</span>
+          <div>
+            <h3>Prospección saliente</h3>
+            <p>Elegimos empresas que encajan con tu cliente ideal, investigamos cada una y escribimos un primer email personal. Sin envíos masivos: una pregunta sobre cómo trabajan hoy, no una oferta.</p>
+            <div class="step-visual"></div>
+          </div>
+        </div>
+        <div class="step" data-step="3">
+          <span class="dot">04</span>
+          <div>
+            <h3>Revisión mensual</h3>
+            <p>Una reunión por mes para ver qué funcionó, qué no y qué ajustar. Con un reporte corto que se lee en minutos.</p>
+            <div class="step-visual"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel fijo: en escritorio muestra la pieza del paso activo; en celular JS copia cada pieza debajo de su paso -->
+      <div class="stage" aria-hidden="true">
+        <div class="mock pos show">
+          <div class="row"><b>Antes</b><span class="was">hacemos consultoría de procesos</span></div>
+          <div class="row"><b>Después</b><span class="now">ordenamos la operación de empresas que crecieron más rápido que sus procesos</span></div>
+          <cite>Faro Consulting</cite>
+        </div>
+        <div class="mock li-post">
+          <div class="li-head">
+            <span class="avatar">TN</span>
+            <div><b>Tu nombre</b><small>Socio · Tu consultora · 2 d</small></div>
+            <span class="ex">Ejemplo</span>
+          </div>
+          <p>El año pasado un cliente grande pausó todo y nos quedamos seis semanas con el equipo parado.</p>
+          <p>No era un problema de servicio. Era que todos nuestros clientes llegaban por el mismo lado.</p>
+          <p>Esto es lo que cambiamos desde entonces 👇</p>
+          <div class="li-actions"><span>Recomendar</span><span>Comentar</span><span>Compartir</span></div>
+        </div>
+        <div class="mock email">
+          <div class="email-bar"><i></i><i></i><i></i><span class="ex">Ejemplo</span></div>
+          <div class="email-field"><span>Para</span>Directora · Consultora de RRHH</div>
+          <div class="email-field"><span>Asunto</span>lo que vi en sus búsquedas abiertas</div>
+          <div class="email-body">
+            <p>Vi que tienen cinco búsquedas abiertas a la vez. Cuando el equipo está así de cargado, suele pasar que nadie tiene tiempo de salir a buscar clientes nuevos.</p>
+            <p>Somos Lumen Lab: trabajamos con consultoras y estudios de servicios profesionales. A Nexo Legal los ayudamos a decir en una frase por qué los eligen.</p>
+            <p>¿Hoy quién se ocupa de conseguir clientes nuevos?</p>
+          </div>
+        </div>
+        <div class="mock report">
+          <div class="report-top"><h4>Reporte mensual</h4><span class="ex">Ejemplo</span></div>
+          <p class="sub">¿De dónde vinieron las conversaciones con clientes nuevos?</p>
+          <div class="bar"><span>Referidos</span><div class="track"><div class="fill soft" style="--w:72%"></div></div></div>
+          <div class="bar"><span>Contenido</span><div class="track"><div class="fill" style="--w:44%"></div></div></div>
+          <div class="bar"><span>Outbound</span><div class="track"><div class="fill" style="--w:30%"></div></div></div>
+          <p class="note">Funcionó: posts sobre problemas de tus clientes. No funcionó: consejos genéricos. Próximo mes: más de lo primero.</p>
+        </div>
+      </div>
+      </div>
+      <p class="aside-note"><strong>¿Prefieres empezar por un diagnóstico antes de un mensual?</strong> Hacemos una auditoría de posicionamiento con hoja de ruta por USD 800.</p>
+    </div>
+  </section>
+
+  <!-- 5. Lo que te pedimos -->
+  <section id="lo-que-pedimos">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Lo que necesitamos de ti</span>
+        <h2>Poco tiempo. Y lo decimos desde el primer día.</h2>
+        <ul class="asks">
+          <li><span class="check">1</span><div><strong>Una reunión por mes.</strong><span>Para revisar resultados y decidir los próximos pasos.</span></div></li>
+          <li><span class="check">2</span><div><strong>Aprobar el contenido.</strong><span>Nosotros lo escribimos; tú lo revisas y lo apruebas.</span></div></li>
+          <li><span class="check">3</span><div><strong>Alguien que firme.</strong><span>El contenido sale con el nombre de una persona real de tu equipo. No hace falta que sea el dueño, pero sí alguien.</span></div></li>
+        </ul>
+      </div>
+      <figure class="feature-quote">
+        <div class="shape" aria-hidden="true"></div>
+        <blockquote class="box">
+          <p>Una reunión por mes y apruebo los posts desde el teléfono.</p>
+          <cite>Diego Salvatierra, Concreto Studio</cite>
+        </blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 6. Clientes -->
+  <section class="alt" id="clientes">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Lo que dicen los clientes</span>
+        <h2>Los casos hablan. Nosotros no.</h2>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <span class="pill">Legal</span>
+          <h3>“Lo decimos en una frase”</h3>
+          <blockquote class="quote">“Hoy lo decimos en una frase y la usamos en todas las reuniones.”</blockquote>
+          <footer><cite>Julieta Paz, Nexo Legal</cite></footer>
+        </article>
+        <article class="card">
+          <span class="pill">Consultoría</span>
+          <h3>“Mi propio discurso, ordenado”</h3>
+          <div class="before-after">
+            <div><b>Antes</b><span class="was">hacemos consultoría de procesos</span></div>
+            <div><b>Después</b><span>ordenamos la operación de empresas que crecieron más rápido que sus procesos</span></div>
+          </div>
+          <blockquote class="quote">“Me devolvieron mi propio discurso ordenado.”</blockquote>
+          <footer><cite>Sofía Lagos, Faro Consulting</cite></footer>
+        </article>
+        <article class="card">
+          <!-- PENDIENTE: confirmar rubro de Kodea (copy.md, pendiente 3) -->
+          <span class="pill">Kodea</span>
+          <h3>“Un método, no promesas”</h3>
+          <blockquote class="quote">“No nos prometieron leads. Nos dieron un método y lo cumplieron.”</blockquote>
+          <footer><cite>Martín Echeverry, Kodea</cite></footer>
+        </article>
+        <article class="card">
+          <span class="pill">RRHH</span>
+          <h3>“No depende de mí”</h3>
+          <blockquote class="quote">“…él me contestó que entonces el sistema no podía depender de mí.”</blockquote>
+          <footer><cite>Paula Ortiz, Brújula RRHH</cite></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Expectativas honestas -->
+  <section id="plazos">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Sobre los plazos</span>
+        <h2>Esto no funciona en un mes. Preferimos decirlo ahora.</h2>
+        <p class="lead">Construir un sistema de clientes que no dependa de los referidos lleva meses. Los primeros suelen ser de ordenar el mensaje y generar constancia, no de reuniones.</p>
+        <p class="promise">Tampoco prometemos cantidad de leads ni facturación: eso no depende solo de nosotros. <strong>Lo que sí prometemos es el método y la constancia.</strong></p>
+      </div>
+      <div class="months">
+        <div class="month">
+          <span class="when">Meses 1 y 2</span>
+          <div class="what"><em>“No pasó casi nada.”</em><small>Así lo contó ByData Consultores. Es la etapa de ordenar el mensaje y sostener la constancia.</small></div>
+        </div>
+        <div class="month hit">
+          <span class="when">Mes 4</span>
+          <div class="what"><em>“En el cuarto mes ya teníamos reuniones con empresas que no nos conocían de antes.”</em><small>ByData Consultores</small></div>
+        </div>
+        <div class="month">
+          <span class="when">Después</span>
+          <div class="what"><em>“Todavía la mayoría viene por referido, pero ya no es el cien por ciento.”</em><small>Pampa Talent</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Preguntas frecuentes -->
+  <section class="alt" id="preguntas">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Lo que nos preguntan antes de empezar.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Cuánto tarda en verse algo?</summary>
+          <p>Meses, no semanas. Los primeros dos meses se van en ordenar el posicionamiento y sostener la constancia. Si necesitas resultados inmediatos, te lo decimos en la primera conversación.</p>
+        </details>
+        <details>
+          <summary>¿Tengo que aparecer en los posts?</summary>
+          <p>Alguien de tu equipo tiene que firmar el contenido, porque en LinkedIn la gente le responde a personas, no a logos. No hace falta que sea el dueño ni que aparezca su cara en cada post, pero sí una persona real.</p>
+        </details>
+        <details>
+          <summary>No quiero comprometerme a un mensual sin conocerlos. ¿Hay otra forma de empezar?</summary>
+          <p>Sí. Puedes empezar con una auditoría de posicionamiento y hoja de ruta (USD 800). Te llevas el diagnóstico y el plan, y decides después.</p>
+        </details>
+        <details>
+          <summary>¿Sirve para un estudio chico?</summary>
+          <p>Sí. Está pensado para empresas donde los que venden son los mismos que atienden a los clientes. Justamente por eso el sistema no puede depender de su tiempo.</p>
+        </details>
+        <details>
+          <summary>Ya probamos con una agencia y fueron muchos likes y cero reuniones. ¿Qué cambia?</summary>
+          <p>No medimos likes. Medimos conversaciones con clientes nuevos y de dónde vinieron. El contenido es una parte del sistema, junto con el posicionamiento y la prospección saliente, no un fin en sí mismo.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 9. CTA final + 10. Footer -->
+<div class="dark">
+  <section class="cta" id="contacto">
+    <div class="wrap">
+      <h2>¿Cómo estás consiguiendo clientes hoy?</h2>
+      <p class="lead">Si la respuesta es “por recomendación y ya está”, hablemos. Es una conversación sobre tu proceso actual, no una presentación de ventas. Y si no somos la opción correcta, te lo decimos.</p>
+      <div class="actions">
+        <a href="AGENDA_URL" class="btn btn-accent">Agendar una conversación</a>
+        <a href="#metodo" class="btn btn-outline-light">Ver cómo trabajamos</a>
+      </div>
+      <p class="micro">Sin demo · Sin compromiso · Te decimos qué priorizar</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <a href="#top" class="logo">Lumen Lab<span>.</span></a>
+          <p style="margin-top:12px;max-width:340px">Marketing B2B para empresas de servicios profesionales.</p>
+          <p style="margin-top:8px">Argentina · Chile · Uruguay · Colombia · Perú</p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#metodo">Cómo trabajamos</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <!-- PENDIENTE: email / WhatsApp / LinkedIn (copy.md, pendiente 7) -->
+          <ul>
+            <li>Email</li>
+            <li>LinkedIn</li>
+          </ul>
+        </div>
+      </div>
+      <p class="legal">© 2026 Lumen Lab</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  // Header con fondo al hacer scroll
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Método: copia cada pieza del panel debajo de su paso (se ve solo en celular)
+  const mocks = [...document.querySelectorAll('.stage .mock')];
+  const steps = [...document.querySelectorAll('.step')];
+  steps.forEach((step, i) => {
+    const clone = mocks[i].cloneNode(true);
+    clone.classList.remove('show');
+    step.querySelector('.step-visual').appendChild(clone);
+  });
+
+  // Método: paso activo, panel fijo y línea de progreso
+  const timeline = document.querySelector('.timeline');
+  const setStep = i => {
+    steps.forEach((s, j) => s.classList.toggle('active', j <= i));
+    mocks.forEach((m, j) => m.classList.toggle('show', j === i));
+    if (i === 3) mocks[3].classList.add('on');
+  };
+  const onMethodScroll = () => {
+    const mid = window.innerHeight * 0.5;
+    let current = 0;
+    steps.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) current = i; });
+    setStep(current);
+    const r = timeline.getBoundingClientRect();
+    const p = Math.min(Math.max((mid - r.top) / r.height, 0), 1);
+    timeline.style.setProperty('--p', (p * 100) + '%');
+  };
+  window.addEventListener('scroll', onMethodScroll, { passive: true });
+  onMethodScroll();
+
+  // Aparición al hacer scroll, con escalonado dentro de cada grupo
+  const groups = ['.head', '.problem', '.tile', '.not-for', '.asks li', '.feature-quote', '.card', '.month', 'details', '.aside-note', '.step-visual .mock'];
+  groups.forEach(sel => document.querySelectorAll(sel).forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.setProperty('--d', (i % 4) * 0.08 + 's');
+  }));
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in', 'on');
+    io.unobserve(e.target);
+  }), { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
