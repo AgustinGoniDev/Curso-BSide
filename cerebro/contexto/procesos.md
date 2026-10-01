@@ -51,3 +51,4 @@ El pipeline hoy vive en la cabeza de Tomás Ruiz (dueño). Usa Notion para track
 - [[voz]] — el framework de Email 1 usado en el paso de prospección.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
 - [[2026-09-23-skill-reporte-semanal-contenido]] — skill que reporta cada semana cómo el contenido alimenta las etapas del funnel.
+- [[2026-10-01-skills-sincronizadas-y-comando-goal]] — aclara que las propuestas de Lumen Lab van por `/generar-propuesta`, no por la skill de Australis AI.

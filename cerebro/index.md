@@ -4,8 +4,8 @@
 > Para operar este wiki, leer `CLAUDE.md` en este directorio.
 > Al hacer una query, leer este archivo primero para decidir qué nodos abrir.
 
-**Última actualización:** 2026-09-28
-**Total de nodos:** 3 sesión | 6 contexto | 0 conceptos | 0 ADRs
+**Última actualización:** 2026-10-01
+**Total de nodos:** 4 sesión | 6 contexto | 0 conceptos | 0 ADRs
 
 ---
 
@@ -26,7 +26,8 @@
 
 ### general
 
-- [[2026-09-28-landing-page-lumen-lab]] — Copy y diseño de la landing de Lumen Lab (`landing/`): CTA único de conversación, tono neutro LATAM, casos con citas sin métricas y estilo de Australis AI adaptado a la marca.
+- [[2026-10-01-skills-sincronizadas-y-comando-goal]] — Las skills sincronizadas de claude.ai (como `cotizacion-australis`) se editan en claude.ai, no en local; qué hace `/goal` y cómo escribir una buena condición.
+- [[2026-09-28-landing-page-lumen-lab]] — Copy, diseño y publicación de la landing de Lumen Lab (`landing/`, en Vercel): CTA único de conversación, tono neutro LATAM, casos con citas sin métricas, estilo de Australis AI adaptado a la marca, mockups con movimiento y tema oscuro.
 - [[2026-09-23-skill-reporte-semanal-contenido]] — Skill que cruza Contenido y Pipeline de Notion con el ICP para reportar cada semana si el contenido atrae al cliente ideal (HTML + Notion), primer reporte y subida del proyecto a GitHub.
 - [[2026-09-10-instalacion-wiki-cerebro]] — Instalación del skill claude-brain y bootstrap del wiki `cerebro/`, con contexto poblado desde `docs/`.
 

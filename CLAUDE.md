@@ -66,6 +66,8 @@ decisiones rutinarias.
 - `/responder-objecion` — Email 2 para un prospecto que objetó (manejo de objeciones)
 - `/generar-propuesta` — propuesta comercial completa post-reunión
 - `/memoria` — cerebro de Lumen Lab (ingest, query, lint)
+- `/crear-landing` — landing page de punta a punta para Lumen Lab o un cliente: copy desde el cerebro
+  con aprobación, diseño con mockups y tema oscuro, y publicación en Vercel con visto bueno
 - `/setup-git-equipo` — lleva cualquier carpeta a GitHub o conecta la PC a un repo existente
   (chequea qué falta, instala Git y GitHub CLI, autentica, crea o conecta el repo e invita al
   equipo). Es genérico: se puede compartir con otros equipos.
@@ -91,3 +93,12 @@ Database ID: 86845970-7077-4fde-8e13-0eac9f61300b
 
 ## Contexto
 Antes de producir cualquier cosa, leé cerebro/index.md y los archivos de cerebro/contexto/.
+
+## Guardar en el cerebro
+Recomendá guardar la sesión con `/cerebro` (ingest) cada vez que:
+- cerramos un tema o terminamos una tarea;
+- se tomó una decisión (de negocio, de proceso o técnica);
+- la ventana de contexto se está por llenar;
+- o cuando creas que hay algo que vale la pena no perder.
+
+Es una recomendación en una línea al final de la respuesta: no guardes sin que el usuario diga que sí.

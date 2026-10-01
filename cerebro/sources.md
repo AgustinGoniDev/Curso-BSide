@@ -61,3 +61,11 @@
 ### australisai-referencia
 - **URL:** https://australisai.tech/
 - **Descripción:** Landing de Australis AI usada como referencia de estructura y estilo para la landing de Lumen Lab (solo el sistema de layout; colores y fuente salen de [[identidad-visual]]). Ver [[2026-09-28-landing-page-lumen-lab]].
+
+### vercel-lumen-lab-landing
+- **URL:** https://lumen-lab-landing.vercel.app
+- **Descripción:** Landing de Lumen Lab publicada en Vercel (proyecto `lumen-lab-landing`, cuenta personal, plan gratuito). Conectada al repo [[sources#repo-github-curso-bside]] con raíz en `landing/`: cada push a `main` la vuelve a publicar. Ver [[2026-09-28-landing-page-lumen-lab]].
+
+### claude-code-goal-docs
+- **URL:** https://code.claude.com/docs/en/goal.md
+- **Descripción:** Documentación oficial del comando `/goal` de Claude Code (condición de cierre evaluada después de cada vuelta). Ver [[2026-10-01-skills-sincronizadas-y-comando-goal]].

@@ -26,3 +26,14 @@
 - Área: general
 - Cross-refs: voz, pruebas, cliente, identidad-visual, que-hacemos (bidireccional)
 - sources.md: agregadas landing-lumen-lab, australisai-referencia
+
+## [2026-09-28 15:30] ingest | 2026-09-28-landing-page-lumen-lab
+- Área: general
+- Tipo: UPDATE (mockups y movimiento, tema oscuro, publicación en Vercel)
+- Cross-refs: sin cambios (voz, pruebas, cliente, identidad-visual, que-hacemos)
+- sources.md: agregada vercel-lumen-lab-landing
+
+## [2026-10-01 14:49] ingest | 2026-10-01-skills-sincronizadas-y-comando-goal
+- Área: general
+- Cross-refs: procesos, 2026-09-28-landing-page-lumen-lab (bidireccional)
+- sources.md: agregada claude-code-goal-docs
