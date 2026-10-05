@@ -37,3 +37,15 @@
 - Área: general
 - Cross-refs: procesos, 2026-09-28-landing-page-lumen-lab (bidireccional)
 - sources.md: agregada claude-code-goal-docs
+
+## [2026-10-05 12:00] ingest | llamada-2026-08-05-llamada-founder-agencia
+- Fuente: fuentes/llamadas/2026-08-05-llamada-founder-agencia.md
+- sources.md: agregada llamada-2026-08-05-llamada-founder-agencia
+
+## [2026-10-05 12:20] rename | 2026-08-05-llamada-founder-agencia
+- Movida de fuentes/llamadas/ a cerebro/llamadas/; eliminada su entrada de sources.md (las llamadas no son fuentes externas)
+- Agregadas: carpeta llamadas/ en CLAUDE.md y sección Llamadas en index.md
+
+## [2026-10-05 12:40] ingest | 2026-10-05-skills-llamadas-y-newsletter
+- Área: general
+- Cross-refs: cliente, voz, 2026-09-23-skill-reporte-semanal-contenido, 2026-10-01-skills-sincronizadas-y-comando-goal (bidireccional)

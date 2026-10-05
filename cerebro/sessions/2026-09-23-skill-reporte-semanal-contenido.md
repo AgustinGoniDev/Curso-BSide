@@ -64,6 +64,7 @@ El usuario confirmó que Notion está conectado (conector MCP) y pasó la carpet
 - [[voz]] — regla de no tratar alcance ni engagement como fin, que ordena el reporte.
 - [[procesos]] — etapas del funnel que aparecen como estados del Pipeline.
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión que dejó pendiente conectar Notion; ahora está conectado por conector MCP.
+- [[2026-10-05-skills-llamadas-y-newsletter]] — dos skills nuevas que también leen el cerebro para producir contenido.
 
 ## Fuentes
 - [[sources#notion-pipeline-crm]]

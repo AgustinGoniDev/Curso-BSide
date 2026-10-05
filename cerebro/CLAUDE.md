@@ -13,6 +13,7 @@ por el comando `/cerebro`. Seguí estas reglas al pie de la letra.
 - `sources.md` — registro de fuentes externas. Directorio, no cache de contenido.
 - `contexto/` — qué **es** este negocio. Se lee antes de producir cualquier cosa.
 - `sessions/` — nodos de sesión. Planos, un archivo por sesión.
+- `llamadas/` — fichas de llamadas destiladas con `/destilar-llamada`. Un archivo por llamada (síntomas, objeciones, decisiones).
 - `CLAUDE.md` — este archivo.
 
 **La diferencia entre `contexto/` y `sessions/`** es la que ordena todo lo demás: las sesiones
@@ -144,8 +145,13 @@ Cuando se invoca `/cerebro query <pregunta>`:
 1. Leer `cerebro/CLAUDE.md` y `cerebro/index.md` completos.
 2. **Si la pregunta es sobre el negocio** — qué hace, a quién le vende, cómo trabaja, cómo escribe —
    la respuesta está en `contexto/`. Leer esos archivos primero.
-3. De los one-liners del índice, seleccionar 1-5 nodos candidatos entre las sesiones.
-4. Leer esos nodos completos.
+3. **Si la pregunta es sobre un cliente, un prospecto o algo que ya se habló**, buscar siempre en
+   `sessions/` **y** en `llamadas/` (índice + Grep por el nombre de la empresa o persona y sus
+   variantes). Las dos carpetas son memoria: las sesiones guardan lo que se hizo y decidió, las
+   llamadas lo que dijeron las personas.
+4. De los one-liners del índice y del Grep, seleccionar 1-5 nodos candidatos entre sesiones y
+   llamadas. Leer esos nodos completos. Si el dato sale de una llamada, citar quién habló y cuándo;
+   si está marcada `simulada: true`, avisarlo.
 5. Respondé exclusivamente desde los nodos del wiki. Si el contenido no está en el wiki, decilo explícitamente.
 6. Sintetizar respuesta en 2-5 párrafos con citations usando wikilinks: `[[slug-del-nodo]]`. **NO usar markdown links** para nodos del wiki.
 7. Si detectás un gap (cross-ref obvio faltante, concepto en 3+ nodos sin nodo propio), NO arreglarlo — reportarlo al final como "Sugerencia para `/cerebro lint`".
@@ -158,7 +164,7 @@ Cuando se invoca `/cerebro query <pregunta>`:
 Cuando se invoca `/cerebro lint`:
 
 1. Leer `cerebro/CLAUDE.md`, `cerebro/index.md` y **todos** los archivos en
-   `cerebro/contexto/` y `cerebro/sessions/`.
+   `cerebro/contexto/`, `cerebro/sessions/` y `cerebro/llamadas/`.
 2. Revisar estas categorías:
    - **Orphan nodes**: nodos sin inbound wikilinks desde otros nodos ni desde `index.md`.
      **Los archivos de `contexto/` no son huérfanos aunque nadie los enlace** — son la base que se

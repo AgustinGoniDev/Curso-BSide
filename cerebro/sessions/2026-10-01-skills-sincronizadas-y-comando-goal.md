@@ -56,6 +56,7 @@ Sesión de consultas, sin producción. El usuario preguntó tres cosas: si estab
 ## Cross-refs
 - [[procesos]] — el proceso de propuestas de Lumen Lab que cubre `/generar-propuesta`, distinto de la skill de Australis AI.
 - [[2026-09-28-landing-page-lumen-lab]] — el ejemplo de `/goal` usó la verificación de esta landing; las dos sesiones tocan Australis AI.
+- [[2026-10-05-skills-llamadas-y-newsletter]] — se crearon `/destilar-llamada` y `/generar-newsletter`.
 
 ## Fuentes
 - [[sources#claude-code-goal-docs]]

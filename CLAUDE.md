@@ -68,6 +68,10 @@ decisiones rutinarias.
 - `/memoria` — cerebro de Lumen Lab (ingest, query, lint)
 - `/crear-landing` — landing page de punta a punta para Lumen Lab o un cliente: copy desde el cerebro
   con aprobación, diseño con mockups y tema oscuro, y publicación en Vercel con visto bueno
+- `/destilar-llamada` — destila la transcripción de una llamada (síntomas, objeciones, decisiones) y
+  la guarda en `cerebro/llamadas/`
+- `/generar-newsletter` — newsletter semanal en texto plano (una idea, un CTA) desde las llamadas y
+  sesiones del cerebro; se guarda en `newsletter/`
 - `/setup-git-equipo` — lleva cualquier carpeta a GitHub o conecta la PC a un repo existente
   (chequea qué falta, instala Git y GitHub CLI, autentica, crea o conecta el repo e invita al
   equipo). Es genérico: se puede compartir con otros equipos.
@@ -93,6 +97,14 @@ Database ID: 86845970-7077-4fde-8e13-0eac9f61300b
 
 ## Contexto
 Antes de producir cualquier cosa, leé cerebro/index.md y los archivos de cerebro/contexto/.
+
+Cada vez que te pregunte por un cliente, un prospecto o algo que ya hablamos, buscá en
+`cerebro/sessions/` **y** en `cerebro/llamadas/` antes de responder (es el modo query de `/cerebro`).
+
+## Diseño
+Para cualquier trabajo de diseño (landings, propuestas HTML, mockups, piezas visuales), consultá
+siempre antes este documento de referencia: https://claude.ai/artifact/5v8PSG7dsZ1hVg31apaumZ
+(es un Claude Doc: leelo con el conector de Claude Docs, no con WebFetch).
 
 ## Guardar en el cerebro
 Recomendá guardar la sesión con `/cerebro` (ingest) cada vez que:

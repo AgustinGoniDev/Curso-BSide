@@ -58,3 +58,4 @@ Consultivo, no vendedor — concreto (señales y casos con métricas reales, no 
 - [[2026-09-10-instalacion-wiki-cerebro]] — sesión donde se pobló este archivo desde `docs/`.
 - [[2026-09-23-skill-reporte-semanal-contenido]] — skill que aplica la regla de no tratar alcance como fin: el reporte abre con pipeline.
 - [[2026-09-28-landing-page-lumen-lab]] — sesión que aplica este tono en la landing y decide tuteo neutro LATAM para ella (el Abierto sigue sin cerrar).
+- [[2026-10-05-skills-llamadas-y-newsletter]] — el newsletter de Agustín usa voseo y respeta estas reglas.

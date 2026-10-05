@@ -66,10 +66,20 @@ Objetivo: responder una pregunta usando el wiki como base, con citations verific
 2. **Si la pregunta es sobre el negocio** — qué hace, a quién le vende, cómo trabaja,
    cómo escribe — leé primero los archivos de `cerebro/contexto/`. Ahí está la
    respuesta, no en las sesiones.
-3. De los one-liners del índice, seleccioná 1-5 nodos candidatos entre las sesiones.
-   Si ninguno parece relevante, decilo y sugerí ampliar la búsqueda.
-4. Leé esos nodos completos.
-5. Respondé exclusivamente desde los nodos del wiki. Si el contenido no está en el wiki, decilo explícitamente.
+3. **Si la pregunta es sobre un cliente, un prospecto o algo que ya hablamos** — una empresa, una
+   persona, "qué dijo X", "qué decidimos", "qué quedó pendiente" — buscá **siempre** en las
+   dos fuentes de memoria, no solo en una:
+   - `cerebro/sessions/` — lo que se hizo y decidió en las sesiones de trabajo.
+   - `cerebro/llamadas/` — lo que dijeron las personas en las llamadas (síntomas, objeciones,
+     decisiones).
+   Buscá el nombre de la empresa o persona (y variantes) en el índice y también con Grep en
+   ambas carpetas, porque el nombre puede estar en el cuerpo y no en el one-liner.
+4. De los one-liners del índice y de los resultados del Grep, seleccioná 1-5 nodos candidatos
+   entre sesiones y llamadas. Si ninguno parece relevante, decilo y sugerí ampliar la búsqueda.
+   Leé esos nodos completos.
+5. Respondé exclusivamente desde los nodos del wiki. Si la información sale de una llamada,
+   decilo (quién habló y cuándo) y distinguí lo que dijo la persona de lo que se decidió después.
+   Si una llamada está marcada `simulada: true`, avisalo: no es un dato real del cliente. Si el contenido no está en el wiki, decilo explícitamente.
 6. Sintetizá respuesta en 2-5 párrafos. Citations usando wikilinks:
    `[[slug-del-nodo]]`.
    **NO uses markdown links** `[texto](ruta)` para nodos del wiki.
@@ -85,7 +95,7 @@ Objetivo: responder una pregunta usando el wiki como base, con citations verific
 Objetivo: reportar el estado de salud del wiki **SIN modificar archivos**.
 
 1. Leé `cerebro/CLAUDE.md`, `cerebro/index.md` y **todos** los archivos en
-   `cerebro/contexto/` y `cerebro/sessions/`.
+   `cerebro/contexto/`, `cerebro/sessions/` y `cerebro/llamadas/`.
 2. Revisá cada categoría según las reglas de lint de `cerebro/CLAUDE.md`.
 3. Devolvé un reporte markdown estructurado:
 
